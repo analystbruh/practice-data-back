@@ -5,11 +5,6 @@ from flask import make_response, request
 from io import StringIO
 import csv
 
-dbname='practice-data'
-user = 'postgres'
-password = 'postgres'
-allowed_host = 'http://localhost:4200' #switch prod/dev with environment variables
-
 @app.route('/')
 def home():
     return '<h1>HEY click <a href="/api/v1/customers">here</a>!</h1>'

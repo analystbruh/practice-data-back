@@ -2,11 +2,11 @@ from venv import create
 import psycopg2 as pg
 from create_statements import create_statements
 from schema_codes import ansi, mssqlserver, mysql_mariadb, oracle, postgres, sqlite
+import os
 
-#db info
-dbname='practice-data'
-user = 'postgres'
-password = 'postgres'
+dbname = os.environ['practice-data-db-name']
+user = os.environ['practice-data-db-username']
+password = os.environ['practice-data-db-password']
 
 transactions_query = """
 select
