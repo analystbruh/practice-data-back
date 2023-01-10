@@ -4,9 +4,10 @@ from create_statements import create_statements
 from schema_codes import ansi, mssqlserver, mysql_mariadb, oracle, postgres, sqlite
 import os
 
-dbname = os.environ['practice-data-db-name']
-user = os.environ['practice-data-db-username']
-password = os.environ['practice-data-db-password']
+dbname = os.environ['PRACTICE-DATA-DB-NAME']
+user = os.environ['PRACTICE-DATA-DB-USERNAME']
+password = os.environ['PRACTICE-DATA-DB-PASSWORD']
+host = os.environ['PRACTICE-DATA-DB-HOST']
 
 transactions_query = """
 select
@@ -40,7 +41,7 @@ order by t.id;
 
 def getData(query: str):
     # connect to db and get data
-    conn = pg.connect(dbname=dbname, user=user, password=password) # use environment variable here
+    conn = pg.connect(dbname=dbname, user=user, password=password,  host=host) # use environment variable here
     cursor = conn.cursor()
     cursor.execute(query)
     data = cursor.fetchall()
