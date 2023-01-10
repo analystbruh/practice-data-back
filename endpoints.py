@@ -21,7 +21,7 @@ def transactions_json():
     output.headers['Content-Disposition'] = 'attachment; filename=transactions.json'
     output.headers['Content-type'] = 'text/json'
     # add CORS header
-    output.headers.add("Access-Control-Allow-Origin", "http://localhost:4200")
+    output.headers.add("Access-Control-Allow-Origin", "*")
     return output
 
 @app.route('/api/v1/transactions/csv')
@@ -35,7 +35,7 @@ def transactions_csv():
     output.headers['Content-Disposition'] = 'attachment; filename=transactions.csv'
     output.headers['Content-type'] = 'text/csv'
     # add CORS header
-    output.headers.add("Access-Control-Allow-Origin", "http://localhost:4200")
+    output.headers.add("Access-Control-Allow-Origin", "*")
     return output
 
 @app.route('/api/v1/transactions/sql')
@@ -46,7 +46,7 @@ def transactions_sql():
     output.headers['Content-Disposition'] = f'attachment; filename=table_{system["system"]}.sql'
     output.headers['Content-type'] = 'text/plain'
     #add CORS header
-    output.headers.add("Access-Control-Allow-Origin", "http://localhost:4200")
+    output.headers.add("Access-Control-Allow-Origin", "*")
     return output
 
 @app.route('/api/v1/transactions/schema')
@@ -58,5 +58,5 @@ def transactions_schema():
     output.headers['Content-Disposition'] = f'attachment; filename=schema_{system["system"]}.sql'
     output.headers['Content-type'] = 'text/plain'
     #add CORS header
-    output.headers.add("Access-Control-Allow-Origin", "http://localhost:4200")
+    output.headers.add("Access-Control-Allow-Origin", "*")
     return output
